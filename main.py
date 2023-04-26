@@ -6,6 +6,12 @@
 
 print("CONTACT BOOK")
 
+
+#need to put the list.csv here to generate the contact book
+
+#if it doesn't exist need code to create
+
+# Contact menu for the application
 def contact_menu():
     print("Enter 1 to view Contact Book")
     print("Enter 2 to add new contact")
@@ -14,3 +20,26 @@ def contact_menu():
     print("Enter 5 to exit the Contact Book")
     choice = input("Enter your number choice!")
     return choice
+
+user_choice = ""
+
+while user_choice != "5":
+    user_choice = contact_menu()
+
+    if (user_choice == "1"):
+        view_contact()
+    elif (user_choice == "2"):
+        add_contact()
+    elif (user_choice == "3"):
+        delete_contact()
+    elif (user_choice == "4"):
+        edit_contact()
+    elif (user_choice == "5"):
+        continue
+    else:
+        print("Sorry! Invaild input")
+    
+    input("To continue press Enter...")
+
+
+print("Closing Contact Book")
