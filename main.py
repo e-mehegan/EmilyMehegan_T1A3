@@ -21,10 +21,15 @@ def contact_menu():
     choice = input("Enter your number choice!")
     return choice
 
+
+# Choices for the user and what the input will do
+
 user_choice = ""
 
 while user_choice != "5":
     user_choice = contact_menu()
+
+#Add to brackets
 
     if (user_choice == "1"):
         view_contact()
@@ -41,5 +46,5 @@ while user_choice != "5":
     
     input("To continue press Enter...")
 
-
+# Text for closing application
 print("Closing Contact Book")
