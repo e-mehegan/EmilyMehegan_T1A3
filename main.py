@@ -41,13 +41,13 @@ while user_choice != "5":
 #Add to brackets
 
     if (user_choice == "1"):
-        view_contact()
+        view_contact(file_name)
     elif (user_choice == "2"):
-        add_contact()
+        add_contact(file_name)
     elif (user_choice == "3"):
-        delete_contact()
+        delete_contact(file_name)
     elif (user_choice == "4"):
-        edit_contact()
+        edit_contact(file_name)
     elif (user_choice == "5"):
         continue
     else:
