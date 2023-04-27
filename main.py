@@ -17,7 +17,7 @@ try:
 # If does not exist this will create it
 except FileNotFoundError as e:
     contact_file = open(file_name, "w")
-    contact_file.write("Contacts,Information")
+    contact_file.write("Contacts,Information\n")
     contact_file.close()
 
 # Contact menu for the application
