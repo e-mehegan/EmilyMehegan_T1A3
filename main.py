@@ -3,14 +3,22 @@
 #imported functions from other file
 from contact_functions import view_contact, add_contact, delete_contact, edit_contact
 
-#add different colors here
-
+# Used as the 'heading' for the application - lets the user know what it is
 print("CONTACT BOOK")
 
+# The contact list which will display the input from the user
+file_name = "contact_list.csv"
 
-#need to put the list.csv here to generate the contact book
+# Check if contact list is created - if not this will create the list
+try:
+    contact_file = open(file_name, "r")
+    contact_file.close()
 
-#if it doesn't exist need code to create
+# If does not exist this will create it
+except FileNotFoundError as e:
+    contact_file = open(file_name, "w")
+    contact_file.write("Contacts,Information")
+    contact_file.close()
 
 # Contact menu for the application
 def contact_menu():
