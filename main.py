@@ -1,6 +1,7 @@
 #import packages here
 
-#import other pages here
+#imported functions from other file
+from contact_functions import view_contact, add_contact, delete_contact, edit_contact
 
 #add different colors here
 
@@ -18,14 +19,14 @@ def contact_menu():
     print("Enter 3 to delete a contact")
     print("Enter 4 to edit a contact")
     print("Enter 5 to exit the Contact Book")
-    choice = input("Enter your number choice!")
+    choice = input("Enter your number choice!: ")
     return choice
 
 
-# Choices for the user and what the input will do
-
+# Choices for the user and what the input will do - This will loop until user exits
 user_choice = ""
 
+# This is to exit the loop
 while user_choice != "5":
     user_choice = contact_menu()
 
@@ -43,8 +44,9 @@ while user_choice != "5":
         continue
     else:
         print("Sorry! Invaild input")
-    
+
+# Brings the user back to the menu
     input("To continue press Enter...")
 
 # Text for closing application
-print("Closing Contact Book")
+print("Closing Contact Book.... CLOSED")
