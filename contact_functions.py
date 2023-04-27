@@ -3,7 +3,11 @@ import csv
 
 #defs for each functions of the application
 def view_contact(file_name):
-    print("View Contact Book")
+    print("VIEW CONTACT BOOK")
+    with open(file_name, "r") as contact_file:
+        reader = csv.reader(contact_file)
+        for row in reader:
+            print(row)
 
 
 def add_contact(file_name):
