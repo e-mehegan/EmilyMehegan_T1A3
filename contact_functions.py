@@ -3,8 +3,8 @@ import csv
 
 
 
-#Function to view contacts
 def view_contact(file_name):
+    #Function to view contacts
     """Prints all the contacts that are present in the contact file"""
     print("VIEW CONTACT BOOK")
     """Opens the contact file in read mode, printing the contact file content"""
@@ -14,8 +14,8 @@ def view_contact(file_name):
             print(row)
 
 
-#Function to add new contacts to the contact book
 def add_contact(file_name):
+    #Function to add new contacts to the contact book
     """Takes input from the user to create the new contact"""
     print("ADD NEW CONTACT")
     name = input("Enter Name: ")
@@ -29,8 +29,8 @@ def add_contact(file_name):
         writer.writerow([name, address, phone])
 
 
-#Function to delete a contact
 def delete_contact(file_name):
+    #Function to delete a contact
     """Takes input from the user of which contact they want to delete"""
     print("DELETE A CONTACT")
     contact_remove = input("Enter the contact name that you want to remove: ")
@@ -50,7 +50,7 @@ def delete_contact(file_name):
 
 
 
-#Function to edit a contact
 def edit_contact(file_name):
+    #Function to edit a contact
     """Takes input of which contact user wants to edit"""
     print("EDIT A CONTACT")
