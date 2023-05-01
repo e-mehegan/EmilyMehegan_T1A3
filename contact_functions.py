@@ -10,8 +10,14 @@ def view_contact(file_name):
     """Opens the contact file in read mode, printing the contact file content"""
     with open(file_name, "r") as contact_file:
         reader = csv.reader(contact_file)
-        for row in reader:
-            print(row)
+        """ This will skip numbering the first row"""
+        next(reader)
+        """ This will then print the first row with our contact, address and phone number headings"""
+        # This will make it clearer for the user
+        print("NAME - ADDRESS - PHONE NUMBER")
+        """Then print other rows with a number identifier"""
+        for i, row in enumerate(reader, 1):
+            print(f"{i}. {row[0]} - {row[1]} - {row[2]}")
 
 
 def add_contact(file_name):
@@ -64,7 +70,7 @@ def edit_contact(file_name):
                 contact_list.append(row)
             else:
                 edit_name = input("Enter edited name: ")
-                edit_address = input("Enter Edited address: ")
+                edit_address = input("Enter edited address: ")
                 edit_phone = input("Enter edited phone number: ")
                 contact_list.append([edit_name, edit_address, edit_phone])
     
