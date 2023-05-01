@@ -1,7 +1,8 @@
 #import packages here
 
 #imported functions from other file
-from contact_functions import view_contact, add_contact, delete_contact, edit_contact
+from contact_functions import view_contact, add_contact, delete_contact
+from edit_contact_function import edit_contact
 
 # Used as the 'heading' for the application - lets the user know what it is
 print("CONTACT BOOK")
