@@ -54,3 +54,22 @@ def edit_contact(file_name):
     #Function to edit a contact
     """Takes input of which contact user wants to edit"""
     print("EDIT A CONTACT")
+    edit_contact = input("Enter name of contact you wish to edit: ")
+    """Reading and saving the data in a list except the one we want to edit"""
+    contact_list = []
+    with open(file_name, "r") as contact_file:
+        reader = csv.reader(contact_file)
+        for row in reader:
+            if(edit_contact.lower() != row[0].lower()):
+                contact_list.append(row)
+            else:
+                edit_name = input("Enter edited name: ")
+                edit_address = input("Enter Edited address: ")
+                edit_phone = input("Enter edited phone number: ")
+                contact_list.append([edit_name, edit_address, edit_phone])
+    
+
+    """Will write the updated information in the file"""
+    with open(file_name, "w") as contact_file:
+        writer = csv.writer(contact_file)
+        writer.writerows(contact_list)
