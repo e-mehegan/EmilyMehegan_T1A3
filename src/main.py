@@ -1,11 +1,12 @@
 #import packages here
+from colored import fg, bg, attr
 
 #imported functions from other file
 from contact_functions import view_contact, add_contact, delete_contact
 from edit_contact_function import edit_contact
 
 # Used as the 'heading' for the application - lets the user know what it is
-print("CONTACT BOOK")
+print(f"{fg('blue')}CONTACT BOOK{attr('reset')}")
 
 # The contact list which will display the input from the user
 file_name = "contact_list.csv"

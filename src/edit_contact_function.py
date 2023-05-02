@@ -3,7 +3,6 @@ import csv
 
 
 def edit_contact(file_name):
-    # Function to edit a contact
     print("EDIT A CONTACT")
     edit_name = input("Enter name of contact you wish to edit: ")
 
