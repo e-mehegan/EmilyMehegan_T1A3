@@ -1,12 +1,14 @@
 # Imports for this file
 import csv
 
+from colored import fg, bg, attr
+
 
 
 def view_contact(file_name):
     #Function to view contacts
     """Prints all the contacts that are present in the contact file"""
-    print("VIEW CONTACT BOOK")
+    print(f"{bg('22')}{fg('234')}VIEW CONTACT BOOK{attr('reset')}")
     """Opens the contact file in read mode, printing the contact file content"""
     with open(file_name, "r") as contact_file:
         reader = csv.reader(contact_file)
@@ -14,20 +16,22 @@ def view_contact(file_name):
         next(reader)
         """ This will then print the first row with our contact, address and phone number headings"""
         # This will make it clearer for the user
-        print("NAME - ADDRESS - PHONE NUMBER")
+        print(f"{attr('bold')}NAME - ADDRESS - PHONE NUMBER{attr('reset')}")
         """Then print other rows with a number identifier"""
         for i, row in enumerate(reader, 1):
             print(f"{i}. {row[0]} - {row[1]} - {row[2]}")
 
 
+
 def add_contact(file_name):
     #Function to add new contacts to the contact book
     """Takes input from the user to create the new contact"""
-    print("ADD NEW CONTACT")
-    name = input("Enter Name: ")
-    address = input("Enter Address: ")
-    phone = input("Enter Phone Number: ")
-    """Opens the contact file in append mode to allow new data to be written into the file.
+    print(f"{bg('22')}{fg('234')}ADD NEW CONTACT{attr('reset')}")
+    name = input(f"Enter {fg('69')}Name{attr('reset')}: ")
+    address = input(f"Enter {fg('69')}Address{attr('reset')}: ")
+    phone = input(f"Enter {fg('69')}Phone Number{attr('reset')}: ")
+    """
+    Opens the contact file in append mode to allow new data to be written into the file.
     This adds to exisiting data and does not overwrite content in the contact file. Print it in a row
     """
     with open(file_name, "a") as contact_file:
@@ -35,11 +39,12 @@ def add_contact(file_name):
         writer.writerow([name, address, phone])
 
 
+
 def delete_contact(file_name):
     #Function to delete a contact
     """Takes input from the user of which contact they want to delete"""
-    print("DELETE A CONTACT")
-    contact_remove = input("Enter the contact name that you want to remove: ")
+    print(f"{bg('22')}{fg('234')}DELETE A CONTACT{attr('reset')}")
+    contact_remove = input(f"Enter the {attr('bold')}{attr('underlined')}contact name{attr('reset')} that you want to {fg('9')}remove{attr('reset')}: ")
     contact_names = []
     """Reading and saving the data in a list except the one that we want to remove"""
     with open(file_name, "r") as contact_file:

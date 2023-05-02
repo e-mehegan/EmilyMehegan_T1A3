@@ -31,7 +31,7 @@ def contact_menu():
     print(f"Enter {fg('69')}4{attr('reset')} to {attr('underlined')}edit{attr('reset')} a contact")
     print(f"Enter {fg('69')}5{attr('reset')} to {attr('underlined')}exit{attr('reset')} the Contact Book")
     """Asks for user choice and will go to user choice and carry out that function"""
-    choice = input("Enter your number choice!: ")
+    choice = input(f"Enter your {fg('69')}{attr('underlined')}number{attr('reset')} choice!: ")
     return choice
 
 
