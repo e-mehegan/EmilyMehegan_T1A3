@@ -6,7 +6,7 @@ from contact_functions import view_contact, add_contact, delete_contact
 from edit_contact_function import edit_contact
 
 # Used as the 'heading' for the application - lets the user know what it is
-print(f"{fg('blue')}CONTACT BOOK{attr('reset')}")
+print(f"{fg('4')}CONTACT BOOK{attr('reset')}")
 
 # The contact list which will display the input from the user
 file_name = "contact_list.csv"
@@ -25,11 +25,11 @@ except FileNotFoundError as e:
 
 def contact_menu():
     # Contact menu for the application
-    print("Enter 1 to view Contact Book")
-    print("Enter 2 to add new contact")
-    print("Enter 3 to delete a contact")
-    print("Enter 4 to edit a contact")
-    print("Enter 5 to exit the Contact Book")
+    print(f"Enter {fg('69')}1{attr('reset')} to {attr('underlined')}view{attr('reset')} Contact Book")
+    print(f"Enter {fg('69')}2{attr('reset')} to {attr('underlined')}add{attr('reset')} new contact")
+    print(f"Enter {fg('69')}3{attr('reset')} to {attr('underlined')}delete{attr('reset')} a contact")
+    print(f"Enter {fg('69')}4{attr('reset')} to {attr('underlined')}edit{attr('reset')} a contact")
+    print(f"Enter {fg('69')}5{attr('reset')} to {attr('underlined')}exit{attr('reset')} the Contact Book")
     """Asks for user choice and will go to user choice and carry out that function"""
     choice = input("Enter your number choice!: ")
     return choice
@@ -55,10 +55,10 @@ while user_choice != "5":
     elif (user_choice == "5"):
         continue
     else:
-        print("Sorry! Invaild input")
+        print(f"Sorry! {fg('9')}Invaild input{attr('reset')}")
 
 # Prompt to bring the user back to the contact menu
-    input("To continue press Enter...")
+    input(f"To continue press {fg('69')}{attr('bold')}Enter{attr('reset')}...")
 
 # Text for closing application
-print("Closing Contact Book.... CLOSED")
+print(f"{fg('4')}Closing Contact Book.... {attr('bold')}CLOSED{attr('reset')}")
