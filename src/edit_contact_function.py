@@ -1,6 +1,7 @@
 import csv
 
 from colored import fg, bg, attr
+import emoji
 
 
 def edit_contact(file_name):
@@ -27,15 +28,15 @@ def edit_contact(file_name):
 
                 # Update the chosen field
                 if choice == 1:
-                    new_value = input(f"Enter new {attr('bold')}name{attr('reset')}: ")
+                    new_value = input(emoji.emojize("Enter new name:  :pen: "))
                     contact_names[i][0] = new_value
                     break
                 elif choice == 2:
-                    new_value = input(f"Enter new {attr('bold')}address{attr('reset')}: ")
+                    new_value = input(emoji.emojize("Enter new address:  :house: "))
                     contact_names[i][1] = new_value
                     break
                 elif choice == 3:
-                    new_value = input(f"Enter new {attr('bold')}phone number{attr('reset')}: ")
+                    new_value = input(emoji.emojize("Enter new phone number:  :mobile_phone: "))
                     contact_names[i][2] = new_value
                     break
                 elif choice == 4:

@@ -1,12 +1,13 @@
 #import packages here
 from colored import fg, bg, attr
+import emoji
 
 #imported functions from other file
 from contact_functions import view_contact, add_contact, delete_contact
 from edit_contact_function import edit_contact
 
 # Used as the 'heading' for the application - lets the user know what it is
-print(f"{fg('4')}CONTACT BOOK{attr('reset')}")
+print(emoji.emojize('CONTACT BOOK :telephone_receiver:'))
 
 # The contact list which will display the input from the user
 file_name = "contact_list.csv"
@@ -25,11 +26,11 @@ except FileNotFoundError as e:
 
 def contact_menu():
     # Contact menu for the application
-    print(f"Enter {fg('69')}1{attr('reset')} to {attr('underlined')}view{attr('reset')} Contact Book")
-    print(f"Enter {fg('69')}2{attr('reset')} to {attr('underlined')}add{attr('reset')} new contact")
-    print(f"Enter {fg('69')}3{attr('reset')} to {attr('underlined')}delete{attr('reset')} a contact")
-    print(f"Enter {fg('69')}4{attr('reset')} to {attr('underlined')}edit{attr('reset')} a contact")
-    print(f"Enter {fg('69')}5{attr('reset')} to {attr('underlined')}exit{attr('reset')} the Contact Book")
+    print(f"Enter {fg('69')}1{attr('reset')} to {fg('69')}{attr('underlined')}view{attr('reset')} Contact Book")
+    print(f"Enter {fg('69')}2{attr('reset')} to {fg('69')}{attr('underlined')}add{attr('reset')} new contact")
+    print(f"Enter {fg('69')}3{attr('reset')} to {fg('69')}{attr('underlined')}delete{attr('reset')} a contact")
+    print(f"Enter {fg('69')}4{attr('reset')} to {fg('69')}{attr('underlined')}edit{attr('reset')} a contact")
+    print(f"Enter {fg('69')}5{attr('reset')} to {fg('69')}{attr('underlined')}exit{attr('reset')} the Contact Book")
     """Asks for user choice and will go to user choice and carry out that function"""
     choice = input(f"Enter your {fg('69')}{attr('underlined')}number{attr('reset')} choice!: ")
     return choice
