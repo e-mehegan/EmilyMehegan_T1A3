@@ -1,7 +1,10 @@
+#imports for this file
 import csv
 
 from colored import fg, bg, attr
 import emoji
+
+
 
 
 def edit_contact(file_name):

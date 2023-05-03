@@ -5,6 +5,7 @@ from colored import fg, bg, attr
 
 
 
+
 def view_contact(file_name):
     #Function to view contacts
     """Prints all the contacts that are present in the contact file"""
