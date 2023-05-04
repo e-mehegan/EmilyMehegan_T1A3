@@ -47,49 +47,49 @@ The style guide that was followed through the creation of the application was PE
 
 ### <u><b>CONTACT MENU</u></b>
 
-The contact menu is created in an easy why for the user to input a number from 1 to 5 for whatever task they wish to do in the contact book. An overview of the functions are below:
+The contact menu is created in an easy way for the user to input a number from 1 to 5 for whatever task they wish to do in the contact book. 
+
+The user is prompted to enter a number from the number options. The return statement will return the user's input choice, which is then stored in the user choice variable. This local varible is only assigned in the while loop, and is used to determine whether the application will continue to loop or exit, depending on the user input. It will determine which function the application will execute based on the user's input number choice. This will bring the user to thier choosen function which will then play out.
+
+The while loop will continue to bring the user back to the contact menu once it has finish the chosen function. This will only stop unbtil the user chooses to exit the program by choosing '5'
+
+```
+def contact_menu():
+    print(f"Enter {fg('69')}1{attr('reset')} to {fg('69')}{attr('underlined')}view{attr('reset')} Contact Book")
+    print(f"Enter {fg('69')}2{attr('reset')} to {fg('69')}{attr('underlined')}add{attr('reset')} new contact")
+    print(f"Enter {fg('69')}3{attr('reset')} to {fg('69')}{attr('underlined')}delete{attr('reset')} a contact")
+    print(f"Enter {fg('69')}4{attr('reset')} to {fg('69')}{attr('underlined')}edit{attr('reset')} a contact")
+    print(f"Enter {fg('69')}5{attr('reset')} to {fg('69')}{attr('underlined')}exit{attr('reset')} the Contact Book")
+    """Asks for user choice and will go to user choice and carry out that function"""
+    choice = input(f"Enter your {fg('69')}{attr('underlined')}number{attr('reset')} choice!: ")
+    return choice
+
+
+user_choice = ""
+
+while user_choice != "5":
+    user_choice = contact_menu()
+
+    if (user_choice == "1"):
+        view_contact(file_name)
+    elif (user_choice == "2"):
+        add_contact(file_name)
+    elif (user_choice == "3"):
+        delete_contact(file_name)
+    elif (user_choice == "4"):
+        edit_contact(file_name)
+    elif (user_choice == "5"):
+        continue
+    else:
+        print(f"Sorry! {fg('9')}Invaild input{attr('reset')}")
+```
+<br>
+
+### <b><u>ERROR HANDLING CONTACT MENU</b></u>
 
 <br>
 
-<b>View contact book (input 1)</b>
-
-- This feature will allow the user to access the whole contact book. They will be able to see all the information for each contact. This will allow the user to look at the contacts book as a whole.
-
-<br>
-
-<b>Add contact (input 2)</b>
-
-- This feature lets the user add a new contact to the contact book, which will save and be able to be viewed with the whole contact book too.
-
-<br>
-
-<b>Delete contact (input 3)</b>
-
-- This feature will let the user delete the contact from the whole contact book. When they choose the view the whole contact book the contact will no longer appear.
-
-<br>
-
-<b>Edit contacts (input 4)</b>
-
-- This feature will allow the user to look for a contact then edit the contact as well if information as changed.
-
-<br>
-
-<b>Exit Contact Book (input 5)</b>
-
-- This feature allows the user to exit the contact book by simply pressing a number. This will exit the application. 
-
-<br>
-<br>
-
-
-### <b><u>ERROR HANDLING & LOOPS IN CONTACT MENU</b></u>
-
-<br>
-
-- To handle any errors, if the user choses an input that is not used, it will output a message that states "Sorry! Invalid Input" prompting them to press enter. This will return them to the contact menu. This process means that it will then loop back to the contact menu. It will continue to loop until the user uses a valid input.
-
-- The contact menu will continue to loop until the user chooses '5' to exit the program. This will then run to the next loop and provide the user with the closing application statement. The other choices will run through there THINGS continuously and will return to the contacts menu until user closes the application. This is carried out after every function until user exits.
+- To handle any errors, if the user choses an input that is not used, it will output a message that states "Sorry! Invalid Input", prompting them to press enter. This will return them to the contact menu. This will continue to loop back to the contact menu until the user chooses a vaild input.
 
 <br>
 <br>
@@ -98,33 +98,78 @@ The contact menu is created in an easy why for the user to input a number from 1
 
 <br>
 
-The features of the application are separated into the files one called 'contact_functions.py' and 'edit_contact_function.py'. This is used to organise the files and to ensure that they are not cluttered in the 'main.py file'. The 'contact_functions.py' and 'edit_contact_function.py' is imported into the 'main.py' to successfully run the application. The edit contact function is separted into its own file since it is bigger than the other functions.
+The main features of the application are separated into files, one called 'contact_functions.py' and 'edit_contact_function.py'. This is used to organise the files and to ensure that they are not cluttered in the 'main.py' file. The 'contact_functions.py' and 'edit_contact_function.py' is imported into the 'main.py' to successfully run the application. The edit contact function is separted into its own file since it is bigger than the other functions.
+
+All the functions have the 'file_name' variable is used through-out the applications code.  This is used to create the 'contact_file' and is used to check if this file already exists, if not it will create a new file. This will be stored in the 'file_name', which will then wirte the header row for the file. The varibale names are given in a way that is easy to identify there purpose.
+
+```
+from contact_functions import view_contact, add_contact, delete_contact
+from edit_contact_function import edit_contact
+```
+
+### <b><u>ERROR HANDLING</b></u>
+
+<br>
+
+- In the try block, it will check if the contact list file is already created by opening the file in read mode. If it does open, it will skip creating the file and move onto executing the contact menu function. 
+
+- To avoid the file not found error, if the file doesn't exist the except statement will create a new file. The file will be used to store the contact book information in the 'file_name' variable. This will then open the file and wirte the 'Contacts, Address and phone' heading in a row. This is used done through the write() function. The file is then closed. 
+
+- Without the try and except blocks the program will run into an error and terminate the program without running through any of the functions.
+
+CODE SNIPPIT BELOW:
+
+```
+file_name = "contact_list.csv"
+
+try:
+    contact_file = open(file_name, "r")
+    contact_file.close()
+
+except FileNotFoundError as e:
+    contact_file = open(file_name, "w")
+    contact_file.write("CONTACTS,ADDRESS,PHONE\n")
+    contact_file.close()
+```
 
 <br>
 	
 #### <u>VIEW CONTACT BOOK</u>
-- The 'View Contact Book' function prints out the contact information in a row for the viewer. This is presented as the name, address and phone number of the contact. This function opens the contact file in read mode then prints the information in the file in the form of a row for the user. 
 
-<br>
+View contact book code snippt
 
-#### <u>EDIT CONTACT</u>
-- features
+- The 'View Contact Book' function prints out the contact information in a row for the viewer. This is presented as the name, address and phone number of the contact. This function opens the contact file in read mode then prints the information in the file in the form of a row for the user. This is structured so the the titles that are printed in a row are not numbered, only the contacts will be.
 
 <br>
 
 #### <u>ADD NEW CONTACT</u>
+
+view new contact codesnippt
+
 - The 'Add New Contact' feature asks for input from the user. It will first ask for the name of the new contact, then the address and phone number. This then opens the contact file in append mode which adds this new information to the contact file in there prospected locations.  
 
 <br>
 
 #### <u>DELETE CONTACT</u>
+
+Delete Contact Codesnippit
+
 - The 'Delete Contact" function asks for the name of the contact that the user wished to delete. This will then read the names in the existing contact file and save the data in the file except for the data on the name that they wish to delete. The function will then carry out this deletion and print the appended list of contact names for the user to view. This confirms that the contact and all its information was deleted. The updated file is then written into the file through write mode.
 	
 ERROR HANDLING: Case sensitive lower case is used
 
 <br>
 
+#### <u>EDIT CONTACT</u>
+
+view edit code snippit
+
+- features
+
+<br>
+
 #### <u>EXIT CONTACT BOOK</u>
+
 - The 'Exit Contact Book' feature allows the user to just enter the number '5' which will then close the application. This is done through a looping function and the continue statement. 
 	INCLUDE CODE SNIPPIT
 

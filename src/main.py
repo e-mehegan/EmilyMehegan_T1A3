@@ -22,7 +22,7 @@ try:
     """If the file does not exist this will create it"""
 except FileNotFoundError as e:
     contact_file = open(file_name, "w")
-    contact_file.write("Contacts,Address,Phone\n")
+    contact_file.write("CONTACTS,ADDRESS,PHONE\n")
     contact_file.close()
 
 
@@ -39,7 +39,10 @@ def contact_menu():
 
 
 user_choice = ""
-"""Choices for the user and what the input will do - This will loop until user exits"""
+"""
+Choices for the user and what the input will do 
+This will loop until user exits
+"""
 
 
 while user_choice != "5":
