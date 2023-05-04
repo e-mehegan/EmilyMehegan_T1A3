@@ -401,6 +401,20 @@ Below is instructions which will describe how to install and use the terminal ap
 
 ### Dependencies of the application
 
-### System/Hardware Requirements
+### System/Hardware Requirements and Dependencies
+
+- Python must be installed for any of the application to be run.
+
+- If using a older version of Python, Pip will need to be installed seperatly. This will allow the installation of packages that are going to be used in the application.
+
+- To run the applicaiton in VS Code, the recommended computer requirements is 1.6 GHz or a faster processer of 1 GB of RAM.
 
 ### How to use command line arguments
+
+
+## LINKS
+
+GitHub:
+
+## REFERENCES
+
