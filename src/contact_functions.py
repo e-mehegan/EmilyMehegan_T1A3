@@ -15,7 +15,10 @@ def view_contact(file_name):
         reader = csv.reader(contact_file)
         """ This will skip numbering the first row"""
         next(reader)
-        """ This will then print the first row with our contact, address and phone number headings"""
+        """ 
+        This will then print the first row with our 
+        contact, address and phone number headings
+        """
         # This will make it clearer for the user
         print(f"{attr('bold')}NAME - ADDRESS - PHONE NUMBER{attr('reset')}")
         """Then print other rows with a number identifier"""

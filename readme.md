@@ -1,5 +1,8 @@
 # Terminal Application
 
+NOTES: 
+- The comments and docstring will be deleted from the code snippits
+
 ## <b><u>Code Styling</b></u>
 
 ### <ul><u>Identify any code style guide or styling conventions that the application will adhere to</ul></u>
@@ -136,27 +139,82 @@ except FileNotFoundError as e:
 	
 #### <u>VIEW CONTACT BOOK</u>
 
-View contact book code snippt
+- The contact file is opened in read mode which will display the information in the file in the form of a row for the user. A 'for' loop is used to execute this. It will read all the information in the CSV file, skipping the first row which are headers. Using the enumerate function, it will number all the contacts in a list for the user. 
 
-- The 'View Contact Book' function prints out the contact information in a row for the viewer. This is presented as the name, address and phone number of the contact. This function opens the contact file in read mode then prints the information in the file in the form of a row for the user. This is structured so the the titles that are printed in a row are not numbered, only the contacts will be.
+- Once the view contact functions is executed it will prompt the user to press enter, then will return to the main menu due to the loop. This is programmed in the 'main.py' file.
+
+```
+def view_contact(file_name):
+    print(f"{bg('22')}{fg('234')}VIEW CONTACT BOOK{attr('reset')}")
+
+    with open(file_name, "r") as contact_file:
+        reader = csv.reader(contact_file)
+        next(reader)
+
+        print(f"{attr('bold')}NAME - ADDRESS - PHONE NUMBER{attr('reset')}")
+
+        for i, row in enumerate(reader, 1):
+            print(f"{i}. {row[0]} - {row[1]} - {row[2]}")
+```
 
 <br>
 
 #### <u>ADD NEW CONTACT</u>
 
-view new contact codesnippt
+- The 'Add New Contact' feature asks for input from the user. It will first ask for the name of the new contact, then the address and phone number.
 
-- The 'Add New Contact' feature asks for input from the user. It will first ask for the name of the new contact, then the address and phone number. This then opens the contact file in append mode which adds this new information to the contact file in there prospected locations.  
+- Once the user has inputed the name, address and phone variables it will store that input in the variables which will be appened in the contact file. This input will be written into there assigned rows in the file and saved. 
+
+- When the user has inputed a new contact they will be able to return to the contact menu and view the new contact through the view contact function. 
+
+- Once the add contact functions is executed it will prompt the user to press enter, then will return to the main menu due to the loop. This is programmed in the 'main.py' file.
+
+```
+def add_contact(file_name):
+    print(f"{bg('22')}{fg('234')}ADD NEW CONTACT{attr('reset')}")
+
+    name = input(f"Enter {fg('69')}Name{attr('reset')}: ")
+    address = input(f"Enter {fg('69')}Address{attr('reset')}: ")
+    phone = input(f"Enter {fg('69')}Phone Number{attr('reset')}: ")
+
+    with open(file_name, "a") as contact_file:
+        writer = csv.writer(contact_file)
+        writer.writerow([name, address, phone])
+```
 
 <br>
 
 #### <u>DELETE CONTACT</u>
 
-Delete Contact Codesnippit
+- The 'Delete Contact" function asks for the name of the contact that the user wishes to delete. The varible is named 'contact_remove' for this input. 
 
-- The 'Delete Contact" function asks for the name of the contact that the user wished to delete. This will then read the names in the existing contact file and save the data in the file except for the data on the name that they wish to delete. The function will then carry out this deletion and print the appended list of contact names for the user to view. This confirms that the contact and all its information was deleted. The updated file is then written into the file through write mode.
-	
-ERROR HANDLING: Case sensitive lower case is used
+- The 'contact_name' variable is used to store the information of the users input, except for the contact that is to be removed. The 'contact_file' will be opened in read mode which will then loop through each contact until the 'contact_remove' input finds the corresponding input found in the first colomn of the file.
+
+- The 'lower()' string method is used to make sure the user input is case insensitive to avoid any error in finding the correct 'contact_remove' name.
+
+- After the list has been updated it will print out the 'contact_names' variable information from the CSV file to show that they contact information for the delte name is removed. the 'csv.writer()' function will update the contact list, deleting the chosen contact.
+
+- Once the delete contact functions is executed it will prompt the user to press enter, then will return to the main menu due to the loop. This is programmed in the 'main.py' file.
+
+```
+def delete_contact(file_name):
+    print(f"{bg('22')}{fg('234')}DELETE A CONTACT{attr('reset')}")
+
+    contact_remove = input(f"Enter the {attr('bold')}{attr('underlined')}contact name{attr('reset')} that you want to {fg('9')}remove{attr('reset')}: ")
+    contact_names = []
+
+    with open(file_name, "r") as contact_file:
+        reader = csv.reader(contact_file)
+        
+        for row in reader:
+            if(contact_remove.lower() != row[0].lower()):
+                contact_names.append(row)
+    print(contact_names)
+
+    with open(file_name, "w") as contact_file:
+        writer = csv.writer(contact_file)
+        writer.writerows(contact_names)
+```
 
 <br>
 
