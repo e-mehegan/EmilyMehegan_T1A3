@@ -362,11 +362,35 @@ My implementation plan of this terminal application was done on Trello
 
 - Deadlines have been given to each card to organise task that need to be done by breaking down what days they are to be completed. This also ensures that I don't fall behind on any of the content that need to be done of each list.
 
-PROVIDE SCREENSHOT OF WHOLE TRELLO PLAN
+### <b>Terminal Application Plan</b>
 
-PROVIDE SCREENSHOT OF CODE FUNCTIONS PLAN
+![Trello-Plan](./docs/trello_ss.png "Trello plan")
 
-PROVIDE SCREEN SHOT OF CHECKLIST AND DESCRIPTIONS FOR EACH FEATURE
+### <b>Code - Functions Plan</b>
+
+![Code-Function](./docs/codefunction_ss.png "Code Functions")
+
+![Code-Function](./docs/main_ss.png "Main Function Code")
+
+![Code-Function](./docs/view_ss.png "View Function Code")
+
+![Code-Function](./docs/add_ss.png "Add Function Code")
+
+![Code-Function](./docs/delete_ss.png "Delete Function Code")
+
+![Code-Function](./docs/edit_ss.png "Edit Function Code")
+
+![Code-Function](./docs/exit_ss.png "Exit Function Code")
+
+### <b>Code - Other Aspects Plan</b>
+
+![Code-Include](./docs/codeother_ss.png "Code Other Aspects")
+
+![Code-Include](./docs/test_ss.png "Design tests")
+
+![Code-Include](./docs/df_ss.png "Developer Functions")
+
+![Code-Include](./docs/commit_ss.png "Git Commits ")
 
 
 ## <b><u>Help Documentation</b></u>
