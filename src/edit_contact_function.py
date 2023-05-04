@@ -8,16 +8,24 @@ import emoji
 
 
 def edit_contact(file_name):
+    """
+    Function to edit contacts in the contact book
+    
+    Parameters: file_name (str): The name of the file where the contacts will
+                    stored for the user
+    """
     print(f"{bg('22')}{fg('234')}EDIT A CONTACT{attr('reset')}")
     edit_name = input(f"Enter {attr('bold')}{attr('underlined')}name{attr('reset')} of contact you wish to edit: ")
-
+    
     contact_names = []
     with open(file_name, "r") as contact_file:
         reader = csv.reader(contact_file)
         contact_names = list(reader)
 
-    for i in range(1, len(contact_names)):
-        if contact_names[i][0].lower() == edit_name.lower():
+    contact_found = False
+    for i in range(len(contact_names)):
+        if contact_names[i][0].strip().lower() == edit_name.strip().lower():
+            contact_found = True
             print(f"\n{bg('4')}Current contact information:{attr('reset')} {contact_names[i]}\n")
 
             while True:
@@ -29,7 +37,7 @@ def edit_contact(file_name):
                 print(f"{fg('69')}4.{attr('reset')} Return to the Contact Book Menu")
                 choice = int(input("Enter your number choice!: "))
 
-                # Update the chosen field
+                # Update the chosen field or exit back to contact menu
                 if choice == 1:
                     new_value = input(emoji.emojize("Enter new name:  :pen: "))
                     contact_names[i][0] = new_value
@@ -56,4 +64,6 @@ def edit_contact(file_name):
             print(f"Contact information for {fg('4')}{edit_name}{attr('reset')} has been updated!")
             return
 
-    print(f"Sorry! {fg('9')}Contact not found{attr('reset')}")
+    if not contact_found:
+        print(f"Sorry! {fg('9')}Contact not found{attr('reset')}")
+
