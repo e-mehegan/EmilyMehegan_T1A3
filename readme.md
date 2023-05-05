@@ -140,7 +140,7 @@ except FileNotFoundError as e:
 
 <br>
 
-- The 'view contact' fucntion opend the contact file in read mode which will display the information in the file in the form of a row for the user. A 'for' loop is used to execute this. It will read all the information in the CSV file, skipping the first row which are headers. Using the enumerate function, it will number all the contacts in a list for the user. 
+- The 'view contact' function opens the contact file in read mode which will display the information in the file in the form of a row for the user. A 'for' loop is used to execute this. It will read all the information in the CSV file, skipping the first row which are headers. Using the enumerate function, it will number all the contacts in a list for the user. 
 
 - Once the view contact function is executed it will prompt the user to press enter, then will return to the main menu due to the loop. This is programmed in the 'main.py' file.
 
@@ -164,7 +164,7 @@ def view_contact(file_name):
 
 <br>
 
-- The 'Add New Contact' feature asks for input from the user. It will first ask for the name of the new contact, then the address and phone number. There is also to option to exit the function in each input allowing the user to have options if they change thier mind or no longer want to add the contact. It will return each time to the contact menu without saving any of the information they have
+- The 'Add New Contact' feature asks for input from the user. It will first ask for the name of the new contact, then the address and phone number. There is also to option to exit the function in each input allowing the user to have options if they change thier mind or no longer want to add the contact. It will return each time to the contact menu without saving any of the information they have entered in the inputs. 
 
 - Once the user has inputed the name, address and phone variables it will store that input in the variables which will be appened in the contact file. This input will be written into there assigned rows in the file and saved. 
 
@@ -364,6 +364,8 @@ My implementation plan of this terminal application was done on Trello
 
 ### <b>Terminal Application Plan</b>
 
+LINK: https://trello.com/b/BAJvkRpV/assignment-3
+
 ![Trello-Plan](./docs/trello_ss.png "Trello plan")
 
 ### <b>Code - Functions Plan</b>
@@ -395,21 +397,203 @@ My implementation plan of this terminal application was done on Trello
 
 ## <b><u>Help Documentation</b></u>
 
-Below is instructions which will describe how to install and use the terminal application
+### <b>Steps</b>
+Below is instructions which will describe how to install and use the terminal application:
 
-### Steps
+- It is recommended to open from GitHub
 
-### Dependencies of the application
+<br>
 
-### System/Hardware Requirements and Dependencies
+<u>GitHub</u>
+
+<ul><b>How to clone repository on web browser and run in VS Code</b></ul>
+
+<br>
+
+<b>1.</b> Go to  this GitHub link: 
+
+<b>2.</b> Click the '<>Code' button (this is usually green)
+
+<b>3.</b> In the local tab (shoudl be in local tab already) copy the URL of the repository. 
+- This can be copied by highlighting the text and clicking left on mouse then choosing copy for the options
+
+- On Mac 'control' + 'C' keys
+
+- There will be three links that can be copied (HTTPS, SSH, GitHub CLI). Chose the one that you wish to copy
+
+<b>4.</b> Open Terminal on your computer. 
+
+- On Windows, open a terminal window by pressing the "Windows" key + "R" on your keyboard, typing "cmd", and pressing Enter. 
+
+- On macOS or Linux, open the terminal application from the Applications menu.
+
+<b>5.</b> Choose directory in terminal
+
+- You change the the directory of where you want this cloned repository to be stored. Do this using the "cd" command in the terminal.
+
+<b>6.</b> In your terminal, type "git clone", and paste the URL that you copied after it. (make sure space between)
+
+<b>7.</b> To make clone press "Enter". (In the terminal it will show that the repository has been cloned)
+
+<b>8.</b> Once clone is made on your computer open VS Code
+
+- If VS Code not installed go to this link: https://code.visualstudio.com/download
+
+- Select which VS Code to download depending on your computer
+
+<b>9.</b> Open VS Code and go to directory where you saved the clone repository.
+
+<b>10.</b> Once opened open a new terminal in VS Code
+
+- In the top menu of your computer there will be a terminal tab, press it and click new terminal
+
+<b>11.</b> Once terminal is open run this line in the terminal: scr/venv_creation.sh && src/run.sh
+
+<b>12.</b> Press enter and this will install everything that is need to run the application. 
+
+<b>13.</b> The applicaiton will now be running. You will be greated with the contact menu.
+
+<br>
+
+<ul><b>How to clone repository on web browser and run in Computer Terminal</ul></b>
+
+<b>1.</b> Go to  this GitHub link: 
+
+<b>2.</b> Click the '<>Code' button (this is usually green)
+
+<b>3.</b> In the local tab (should be in local tab already) copy the URL of the repository. 
+- This can be copied by highlighting the text and clicking left on mouse then choosing copy for the options
+
+- On Mac 'control' + 'C' keys
+
+- There will be three links that can be copied (HTTPS, SSH, GitHub CLI). Chose the one that you wish to copy
+
+<b>4.</b> Open terminal on your computer. 
+
+- On Windows, open a terminal window by pressing the "Windows" key + "R" on your keyboard, typing "cmd", and pressing Enter. 
+
+- On macOS or Linux, open the terminal application from the Applications menu.
+
+<b>5.</b> Choose directory in terminal. 
+
+- You change the the directory of where you want this cloned repository to be stored. Do this using the "cd" command in the terminal.
+
+<b>6.</b> In your terminal, type "git clone", and paste the URL that you copied after it. (make sure space between)
+
+<b>7.</b> To make clone press "Enter". (In the terminal it will show that the repository has been cloned)
+
+<b>8.</b> When repository has been cloned, navigate into the repository's directory using the "cd" command in the terminal.
+
+<b>9.</b> Now that you are in the folder run this command to install any dependencies required for the application: scr/venv_creation.sh && src/run.sh
+
+<b>10.</b> Press enter and this will install everything that is need to run the application. 
+
+<b>11.</b> The applicaiton will now be running. You will be greated with the contact menu.
+
+
+<br>
+<br>
+
+<u>From Folder</u>
+
+<ul><b>If opening the application straight from the applications folder</ul></b>
+
+<br>
+
+<b>1.</b> Open VS Code on computer
+
+- If VS Code not installed go to this link: https://code.visualstudio.com/download
+
+- Select which VS Code to download depending on your computer
+
+<b>2.</b> Once opened open a new terminal in VS Code
+
+- In the top menu of your computer there will be a terminal tab, press it and click new terminal
+
+<b>3.</b> Once terminal is open run this line in the terminal: scr/venv_creation.sh && src/run.sh
+
+<b>4.</b> Press enter and this will install everything that is need to run the application. 
+
+<b>5.</b> The applicaiton will now be running. You will be greated with the contact menu.
+
+<br>
+<br>
+
+<u>Zip File</u>
+
+<ul><b>If opening application from a zip folder and opening in VS Code</ul></b>
+
+<b>1.</b> Download zip file onto computer
+
+- Make sure to remember where you have put it
+
+<b>2.</b> Once zip file is downloaded, extract contacts. Right-click on zip file and select "Extract All" from menu.
+
+<b>3.</b> New window will appear asking where you want to extract the contents of the zip file. Choose a location on your computer where you want to extract the files.
+
+<b>4.</b> Open VS Code on computer
+
+- If VS Code not installed go to this link: https://code.visualstudio.com/download
+
+- Select which VS Code to download depending on your computer
+
+<b>5.</b> In VS Code, go to File > Open, and navigate to the location where you extracted the files from the zip file.
+
+<b>6.</b> Open the file
+
+<b>7.</b> Once opened open a new terminal in VS Code
+
+- In the top menu of your computer there will be a terminal tab, press it and click new terminal
+
+<b>3.</b> Once terminal is open run this line in the terminal: scr/venv_creation.sh && src/run.sh
+
+<b>4.</b> Press enter and this will install everything that is need to run the application. 
+
+<b>5.</b> The applicaiton will now be running. You will be greated with the contact menu.
+
+<br>
+
+<ul><b>If opening application from a zip folder</ul></b>
+
+<b>1.</b> Download zip file onto computer
+
+- Make sure to remember where you have put it
+
+<b>2.</b> Once zip file is downloaded, extract contacts. Right-click on zip file and select "Extract All" from menu.
+
+<b>3.</b> New window will appear asking where you want to extract the contents of the zip file. Choose a location on your computer where you want to extract the files.
+
+<b>4.</b> Open terminal on your computer. 
+
+- On Windows, open a terminal window by pressing the "Windows" key + "R" on your keyboard, typing "cmd", and pressing Enter. 
+
+- On macOS or Linux, open the terminal application from the Applications menu.
+
+<b>5.</b> Navigate to directory where you extracted the contents of the zip file
+
+-  Use the 'cd' command
+
+<b>6.</b> Once file is open run this line in the terminal: scr/venv_creation.sh && src/run.sh
+
+<b>7.</b> Press enter and this will install everything that is need to run the application. 
+
+<b>8.</b> The applicaiton will now be running. You will be greated with the contact menu.
+
+<br>
+<br>
+
+### <u><b>System/Hardware Requirements and Dependencies</u></b>
 
 - Python must be installed for any of the application to be run.
+<ul>LINK TO INSTALL PYTHON (Choose the latest version to download): https://www.python.org/downloads/
 
-- If using a older version of Python, Pip will need to be installed seperatly. This will allow the installation of packages that are going to be used in the application.
+- Follow instructions on the download</ul>
 
 - To run the applicaiton in VS Code, the recommended computer requirements is 1.6 GHz or a faster processer of 1 GB of RAM.
 
-### How to use command line arguments
+- If using a older version of Python, Pip will need to be installed seperatly. This will allow the installation of packages that are used in the application. Without it the application will not run properly. 
+
+### <u><b>How to use command line arguments</u></b>
 
 
 ## LINKS
