@@ -172,6 +172,11 @@ def view_contact(file_name):
 
 - Once the add contact function is executed it will prompt the user to press enter, then will return to the main menu due to the loop. This is programmed in the 'main.py' file.
 
+### <u>ERROR HANDLING</u>
+- To avoid any input error is the user does not enter an input at all it will print the error message say that it must have input. This will then return back to the add name, address or phone number prompt until the user either enters a valid input or returns back to contact menu.
+
+- For the phone number input, if the user does not enter numbers it will throw an error print that the input must be numbers. This will also return to the to the phone number input prompt until the either exit to contact menu or enter a valid input. This is to make sure the correct information is being inputted into the correct inputs. 
+
 ```
 def add_contact(file_name):
     
@@ -626,10 +631,13 @@ Below is instructions which will describe how to install and use the terminal ap
 
 ### <u><b>How to use command line arguments</u></b>
 
+<br>
 
 ## LINKS
 
 GitHub:
+
+Trello: https://trello.com/b/BAJvkRpV/assignment-3
 
 ## REFERENCES
 

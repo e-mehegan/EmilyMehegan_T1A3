@@ -42,15 +42,35 @@ def add_contact(file_name):
     #Takes input from the user to create the new contact or exit
     print(f"{bg('22')}{fg('234')}ADD NEW CONTACT{attr('reset')}")
     
-    name = input(f"Enter {fg('69')}Name{attr('reset')} ('q' to exit): ")
-    if name == "q":
-        return
-    address = input(f"Enter {fg('69')}Address{attr('reset')} ('q' to exit): ")
-    if address == "q":
-        return
-    phone = input(f"Enter {fg('69')}Phone Number{attr('reset')} ('q' to exit): ")
-    if phone == "q":
-        return
+    while True:
+        name = input(f"Enter {fg('69')}Name{attr('reset')} ('q' to exit): ")
+        if name == "q":
+            return
+        if not name.strip():
+            print(f"{fg('9')}Error!{attr('reset')} Name cannot be empty.")
+            continue
+        else:
+            break
+
+    while True:
+        address = input(f"Enter {fg('69')}Address{attr('reset')} ('q' to exit): ")
+        if address == "q":
+            return
+        if not address.strip():
+            print(f"{fg('9')}Error!{attr('reset')} Address cannot be empty.")
+            continue
+        else:
+            break
+
+    while True:
+        phone = input(f"Enter {fg('69')}Phone Number{attr('reset')} ('q' to exit): ")
+        if phone == "q":
+            return
+        if not phone.strip() or not phone.isnumeric():
+            print(f"{fg('9')}Error!{attr('reset')} Phone number must be numeric.")
+            continue
+        else:
+            break
     
     # Opens the contact file in append mode 
     with open(file_name, "a") as contact_file:
