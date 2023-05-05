@@ -256,66 +256,97 @@ def delete_contact(file_name):
 
 #### <u>EDIT CONTACT</u>
 
-- The 'edit contact' function as the 'edit_name' variable for the user input. This will ask for the name of the contact that they wish to edit from thier contact file. Once the user inputs a name it will open and read the contact file searching for the corresponding name.
+- Function prints an 'Edit Contact' header for clarification to the user.
 
-- The 'contact_found' boolean variable will be set to either 'True' if the contact in the current index 'i' is found or 'False' if not. If the contact is found it will print the current contact information of the 'edit_name' contact input. The ' while True:' loop is used to display the options of what information in the contact the user wants to edit. The 'choice' function will then carry out the users 'choice' input. This will allow then to edit the information. It will then open the contact file in write mode and update the changed information. A print statement will then confirm that the changes were made to the file. The 'while True:' loop will begin again until the user chooses the 'Retrun the Contact Book Menu' option.
+- Reads all the contacts in the contact list using the 'csv.reader()' method. 
 
-- If it is 'False' it will throw out an error. To compat this if the contact is not found a statement will be printed to the user saying that the contact was not found. If this happens it will then loop back to the beginning of the function and ask for a contact name again. 
+- A list of the contact names with corresponding number are given so the user can choose which contact they wish to edit. This helps solve the problem of repeat names in the contact list so they choose the right contact. The function uses a 'for' loop which will start at 1 so it skipps the heading line in the CSV file. This is displayed through the 'print()' function. 
 
-- Once the edit contact function is executed it will prompt the user to press enter, then will return to the main menu due to the loop. This is programmed in the 'main.py' file
+- An 'input() function is used so the user can input the number of the contact they wish to edit. The information on the contact is stored in the 'chosen_contact' list. 
+
+- A loop is entered so the user can choose what information (name, address, phone number or exit to contact book menu) they wish to change. The options are displayed through the 'print()' function in a list. The 'strip()' function is used to aid in removing whitespace for the input. This helps handle some errors. 
+
+- If the user has entered a valid choice, another loop will be entered to choose a new input (name, address, phone number) for a contact. This new contact information is updated and stored in the 'new_value' variable.
+
+- Depending on what information was updated, it will update the correct area of the 'chosen_contact' list with this new contact information.
+
+- It will then write the updated contact information in the CSV file.
+
+- It will continue to loop until the user decides to exit the edit contact function. Once the user decides to exit it will make sure that all the updated information is written into the file, save it and return to the contcat menu. 
+
+### <u>ERROR HANDLING</u>
+
+- If the user enters any invalid choice or input it will print an error message and the loop will continue. Error that occur in this function is the 'Value Error' error.
+
+- Some other minor error handling is done within the edit contact function. To ensure that there is no error with name double ups, the user is able to view the whole contact list and choose the correct contact.
 
 ```
 def edit_contact(file_name):
 
     print(f"{bg('22')}{fg('234')}EDIT A CONTACT{attr('reset')}")
-    edit_name = input(f"Enter {attr('bold')}{attr('underlined')}name{attr('reset')} of contact you wish to edit: ")
-    
-    contact_names = []
+
     with open(file_name, "r") as contact_file:
         reader = csv.reader(contact_file)
         contact_names = list(reader)
+    
+    print("Contacts:")
+    for i in range(1, len(contact_names)):
+         print(f"{i+1}. {contact_names[i][0]}")
+    
+    choice = int(input(f"Enter the {attr('underlined')}number{attr('reset')} of the contact you want to edit: "))
+    chosen_contact = contact_names[choice-1]
+    print(f"\n{bg('4')}Current contact information:{attr('reset')} {chosen_contact}\n")
 
-    contact_found = False
-    for i in range(len(contact_names)):
-        if contact_names[i][0].strip().lower() == edit_name.strip().lower():
-            contact_found = True
-            print(f"\n{bg('4')}Current contact information:{attr('reset')} {contact_names[i]}\n")
+    while True:
+        print("What information would you like to change?")
+        print(f"{fg('69')}1.{attr('reset')} Name")
+        print(f"{fg('69')}2.{attr('reset')} Address")
+        print(f"{fg('69')}3.{attr('reset')} Phone number")
+        print(f"{fg('69')}4.{attr('reset')} Return to the Contact Book Menu")
+        choice = input("Enter your number choice!: ").strip()
+        
+        if not choice:
+            print(f"{fg('9')}Invalid Choice{attr('reset')}")
+            continue
 
-            while True:
-                print("What information would you like to change?")
-                print(f"{fg('69')}1.{attr('reset')} Name")
-                print(f"{fg('69')}2.{attr('reset')} Address")
-                print(f"{fg('69')}3.{attr('reset')} Phone number")
-                print(f"{fg('69')}4.{attr('reset')} Return to the Contact Book Menu")
-                choice = int(input("Enter your number choice!: "))
+        try:
+            choice = int(choice)
+        except ValueError:
+            print(f"{fg('9')}Invalid Choice{attr('reset')}")
+            continue
 
+        while True:
+            try:
                 if choice == 1:
                     new_value = input(emoji.emojize("Enter new name:  :pen: "))
-                    contact_names[i][0] = new_value
+                    chosen_contact[0] = new_value
                     break
                 elif choice == 2:
                     new_value = input(emoji.emojize("Enter new address:  :house: "))
-                    contact_names[i][1] = new_value
+                    chosen_contact[1] = new_value
                     break
                 elif choice == 3:
                     new_value = input(emoji.emojize("Enter new phone number:  :mobile_phone: "))
-                    contact_names[i][2] = new_value
+                    chosen_contact[2] = new_value
                     break
                 elif choice == 4:
+                    # Write updated contact information
+                    with open(file_name, "w", newline="") as contact_file:
+                        writer = csv.writer(contact_file)
+                        writer.writerows(contact_names)
                     return
                 else:
                     print(f"Sorry! {fg('9')}Invalid input.{attr('reset')} Please enter a valid input of {attr('underlined')}1 to 4{attr('reset')}.\n")
-                    continue
+                    choice = int(input("Enter your number choice!: "))
 
-            with open(file_name, "w", newline="") as contact_file:
-                writer = csv.writer(contact_file)
-                writer.writerows(contact_names)
-                
-            print(f"Contact information for {fg('4')}{edit_name}{attr('reset')} has been updated!")
-            return
+            except ValueError:
+                print(f"{fg('9')}Invalid Choice{attr('reset')}")
 
-    if not contact_found:
-        print(f"Sorry! {fg('9')}Contact not found{attr('reset')}")
+        with open(file_name, "w", newline="") as contact_file:
+            writer = csv.writer(contact_file)
+            writer.writerows(contact_names)
+            
+        print(f"Contact information for has been updated!")
 ```
 
 <br>
