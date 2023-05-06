@@ -389,6 +389,12 @@ while user_choice != "5":
 # Text for closing application
 print(f"{fg('4')}Closing Contact Book.... {attr('bold')}CLOSED{attr('reset')}")
 ```
+### <u>Python Packages Installed</u>
+
+1. Colored: https://pypi.org/project/colored/
+2. Pytest: https://docs.pytest.org/en/7.3.x/
+3. Emoji: https://pypi.org/project/emoji/
+4. Rich: https://pypi.org/project/rich/
 
 ## <b><u> Implementation Plan</b></u>
 
@@ -631,13 +637,11 @@ Below is instructions which will describe how to install and use the terminal ap
 
 - If using a older version of Python, Pip will need to be installed seperatly. This will allow the installation of packages that are used in the application. Without it the application will not run properly. 
 
-### <u><b>How to use command line arguments</u></b>
-
 <br>
 
 ## LINKS
 
-GitHub:
+GitHub: https://github.com/e-mehegan/EmilyMehegan_T1A3
 
 Trello: https://trello.com/b/BAJvkRpV/assignment-3
 
