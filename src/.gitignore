@@ -1,4 +1,5 @@
-# Files that GitHub wil ignore
 
-contact-venv
+
+contact-venv/
 contact_list.csv
+.pytest_cache/

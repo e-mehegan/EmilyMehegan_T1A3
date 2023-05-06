@@ -32,7 +32,8 @@ def delete_contact(file_name):
 
     # Ask user which contact to delete or if they want to return to contact menu
     while True:
-        choice = input(f"Enter the {attr('bold')}#number{attr('reset')} of the contact you want to {fg('9')}remove{attr('reset')} (or enter {fg('4')}'q'{attr('reset')} to return to contact menu): ")
+        choice = input(f"Enter the {attr('bold')}#number{attr('reset')} of the contact you want to\
+                        {fg('9')}remove{attr('reset')} (or enter {fg('4')}'q'{attr('reset')} to return to contact menu): ")
         if choice == "q":
             break
         

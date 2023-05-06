@@ -29,7 +29,7 @@ def view_contact(file_name):
         for i, row in enumerate(reader, 1):
             print(f"{i}. {row[0]} - {row[1]} - {row[2]}")
 
-
+            
 
 def add_contact(file_name):
     """ 
@@ -42,6 +42,7 @@ def add_contact(file_name):
     #Takes input from the user to create the new contact or exit
     print(f"{bg('22')}{fg('234')}ADD NEW CONTACT{attr('reset')}")
     
+    # Loop to handle errors, will break loop when user exit
     while True:
         name = input(f"Enter {fg('69')}Name{attr('reset')} ('q' to exit): ")
         if name == "q":
@@ -52,6 +53,7 @@ def add_contact(file_name):
         else:
             break
 
+    # Loop to handle errors, will break loop when user exit
     while True:
         address = input(f"Enter {fg('69')}Address{attr('reset')} ('q' to exit): ")
         if address == "q":
@@ -62,6 +64,7 @@ def add_contact(file_name):
         else:
             break
 
+    # Loop to handle errors, will break loop when user exit
     while True:
         phone = input(f"Enter {fg('69')}Phone Number{attr('reset')} ('q' to exit): ")
         if phone == "q":
