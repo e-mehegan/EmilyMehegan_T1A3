@@ -402,6 +402,8 @@ My implementation plan of this terminal application was done on Trello
 
 LINK: https://trello.com/b/BAJvkRpV/assignment-3
 
+- This is the plan for the whole assessment
+
 ![Trello-Plan](./docs/trello_ss.png "Trello plan")
 
 ### <b>Code - Functions Plan</b>
@@ -641,5 +643,6 @@ Trello: https://trello.com/b/BAJvkRpV/assignment-3
 
 Presentation: https://vimeo.com/824267783?share=copy#t=1
 
-## REFERENCES
-
+Style Guide Refernces: 
+- https://peps.python.org/pep-0008/
+- https://docs.python-guide.org/writing/style/
