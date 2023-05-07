@@ -27,8 +27,7 @@ def edit_contact(file_name):
          print(f"{i+1}. {contact_names[i][0]}")
     
     # Contact number input from user
-    choice = int(input(f"Enter the {attr('underlined')}number{attr('reset')}\
-                        of the contact you want to edit: "))
+    choice = int(input(f"Enter the {attr('underlined')}number{attr('reset')} of the contact you want to edit: "))
 
     # Current information of chosen contact
     chosen_contact = contact_names[choice-1]

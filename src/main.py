@@ -32,12 +32,14 @@ def contact_menu():
     Contact menu function for the application
     
     """
+    print(f"{fg('4')}_________________________________{attr('reset')}")
     print(f"Enter {fg('69')}1{attr('reset')} to {fg('69')}{attr('underlined')}view{attr('reset')} Contact Book")
     print(f"Enter {fg('69')}2{attr('reset')} to {fg('69')}{attr('underlined')}add{attr('reset')} new contact")
     print(f"Enter {fg('69')}3{attr('reset')} to {fg('69')}{attr('underlined')}delete{attr('reset')} a contact")
     print(f"Enter {fg('69')}4{attr('reset')} to {fg('69')}{attr('underlined')}edit{attr('reset')} a contact")
     print(f"Enter {fg('69')}5{attr('reset')} to {fg('69')}{attr('underlined')}exit{attr('reset')} the Contact Book")
-    
+    print(f"{fg('4')}_________________________________{attr('reset')}")
+
     #Asks for user choice and will go to user choice and carry out that function
     choice = input(f"Enter your {fg('69')}{attr('underlined')}number{attr('reset')} choice!: ")
     return choice
