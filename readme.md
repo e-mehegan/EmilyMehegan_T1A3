@@ -1,5 +1,9 @@
 # Terminal Application
 
+## NOTE
+- This is assignment 3 of Term 1 that was completed at the start of 2023. The project was to create a python termianl application that had to accept user input in the form of a file or text input and
+produce printed output or interact with the file system.
+
 
 ## <b><u>Code Styling</b></u>
 
